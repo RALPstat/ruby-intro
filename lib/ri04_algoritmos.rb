@@ -4,14 +4,41 @@
 # Ejemplo: merge_sort([3,5,10,-2]) => [-2,3,5,10]
 
 def merge(l, r)
-	x=[]
+	merge=[]
 	i_l=0
 	i_r=0
 	cont=l.length+r.length
 	for	k in 0...cont
-		l[i_l]
-	end	
-	return x
+			if l[i_l]!=nil && r[i_r]!=nil && l[i_l]<r[i_r]
+				merge[k]=l[i_l]
+				i_l+=1
+				if  l[i_l] == nil
+
+					while i_r < r.length
+						k += 1
+						merge[k]=r[i_r]	
+						
+						i_r += 1
+					end
+					return merge
+				end 
+
+			elsif r[i_r]!=nil && l[i_l]!=nil && l[i_l]>r[i_r]				
+				merge[k]=r[i_r]	
+				i_r+=1
+				if  r[i_r] == nil
+					while i_l < l.length
+						k += 1
+
+						merge[k]=l[i_l]	
+						
+						i_l += 1
+					end
+					return merge
+				end 
+			end
+		end
+	return merge
 end
 
 
